@@ -8,3 +8,7 @@ const greet = (name) => {
 
 greet('mario');
 greet('yoshi');
+
+setTimeout(()=>{
+    alert('hello')
+},3000)
