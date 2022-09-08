@@ -26,6 +26,7 @@ app.use(express.static('public'));
 
 //3rd party middleware
 app.use(morgan('dev'));
+app.use(express.urlencoded({ extended: true})); //to accept form data
 
 //mongoose and mongo sandbox routes
 // app.get('/add-blog', (req,res) => {
@@ -107,6 +108,18 @@ app.get('/blogs', (req,res) =>{
       })
 
 })      
+
+app.post('/blogs', (req,res) => {
+    //console.log(req.body);
+    const blog = new Blog(req.body);
+    blog.save()
+        .then((result) => {
+            res.redirect('/blogs');
+        })
+        .catch((err) => {
+            console.log(err); 
+        })
+});
 
 app.get('/blogs/create', (req,res) => {
     res.render('create', { title: 'Create a new Blog'});
