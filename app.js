@@ -2,7 +2,6 @@ const express = require('express');
 const morgan = require('morgan');
 const mongoose = require('mongoose');
 const Blog = require('./models/blog');
-const { render } = require('ejs');
 
 
 //express app
@@ -122,6 +121,7 @@ app.post('/blogs', (req,res) => {
         })
 });
 
+<<<<<<< HEAD
 app.get('/blogs/:id', (req,res) => {
     const id = req.params.id;
     //console.log(id);
@@ -145,6 +145,8 @@ app.delete('/blogs/:id', (req,res) => {
         })
 })
 
+=======
+>>>>>>> parent of 787e429 (added functionality to retrieve a blog)
 app.get('/blogs/create', (req,res) => {
     res.render('create', { title: 'Create a new Blog'});
 });
